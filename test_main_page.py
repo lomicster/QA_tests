@@ -1,5 +1,5 @@
 import time
-from pages.main_page import MainPage
+from .pages.main_page import MainPage
 import pytest
 
 
@@ -11,6 +11,7 @@ link = 'http://selenium1py.pythonanywhere.com/ru'
 def test_guest_can_go_to_catalogue(browser):
     page = MainPage(browser, link)
     page.open_page()
+    page.should_be_view_products()
     page.go_to_catalogue()
 
     # @pytest.mark.view_products
