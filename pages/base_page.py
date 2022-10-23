@@ -1,4 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
+from .locators import MainPageLocators
 class BasePage:
 
     def __init__(self, browser, link):
@@ -15,4 +16,7 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
+
+    def go_to_login_page(self):
+        self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
 
