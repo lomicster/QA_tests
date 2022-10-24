@@ -24,6 +24,13 @@ def test_guest_can_go_to_login_page(browser):
     page = LoginPage(browser, link)
     page.should_be_login_page()
 
+def test_user_should_be_authorized(browser):
+    link = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
+    page = LoginPage(browser, link)
+    page.open_page()
+    page.register_user(email=str(time.time())+'@mail.org', password='qwerty ')
+    page.should_be_authorized_user()
+
     # @pytest.mark.view_products
     # def test2(browser):
     #     browser.get(link)
